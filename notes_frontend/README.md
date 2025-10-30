@@ -1,82 +1,63 @@
-# Lightweight React Template for KAVIA
+# Simple Notes – React Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A lightweight React app to create, edit, duplicate, search, and delete notes. All data is stored locally in your browser using localStorage. No backend is required.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Create new notes
+- Edit note title and body (autosaves as you type)
+- Duplicate existing notes
+- Delete notes (with confirmation)
+- Search across titles and bodies
+- Notes are sorted by most recently updated
+- Data persists in your browser via localStorage
+- Light/Dark theme toggle
 
 ## Getting Started
 
-In the project directory, you can run:
+In the project directory:
+
+### `npm install`
+Install dependencies.
 
 ### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Runs the app in development mode.
+Open http://localhost:3000 to view it in your browser.
 
 ### `npm test`
-
-Launches the test runner in interactive watch mode.
+Runs the tests in watch mode.
 
 ### `npm run build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Use
 
-## Customization
+- Create: Click “+ New Note” from the left panel or from the empty state.
+- Edit: Update the Title and Body in the editor on the right. Changes are autosaved.
+- Save: A Save button is available for reassurance, but autosave is active.
+- Duplicate: Click “⎘ Duplicate” to create a copy of the current note.
+- Delete: Click “🗑 Delete” in the editor, or the trash icon from the list. A confirmation will appear.
+- Search: Use the search box above the list to filter by title or body content.
 
-### Colors
+## Data Persistence
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+- Notes and the selected note id are saved in localStorage using keys:
+  - `notes.v1`
+  - `notes.selectedId.v1`
+- Clearing your browser storage or switching browsers/devices will reset the notes.
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+## Project Structure
 
-### Components
+- `src/App.js` – Main application logic and state
+- `src/components/NotesList.js` – Notes list with search and new note button
+- `src/components/NoteEditor.js` – Editor for title/body with actions
+- `src/components/Header.js` – App header with theme toggle
+- `src/hooks/useLocalStorage.js` – Hook for localStorage persistence
+- `src/utils/id.js` – Utility for generating unique ids
+- `src/App.css` – App styles
+- `src/index.css` – Base styles
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## Notes
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This app is fully frontend-only. There are no network requests or backend references.
+- You can safely embed or deploy as a static site.

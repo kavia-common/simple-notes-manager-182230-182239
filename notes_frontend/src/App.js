@@ -111,11 +111,7 @@ function App() {
 
   return (
     <div className="app-root">
-      <Header
-        onToggleTheme={() => {
-          // Theme toggling handled by Header internally via document data-theme
-        }}
-      />
+      <Header />
       <main className="main-layout">
         <aside className="notes-pane">
           <NotesList
